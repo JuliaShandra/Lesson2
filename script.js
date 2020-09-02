@@ -24,22 +24,32 @@
 
 //3
 
-a = +prompt('Введите А', '');
-b = +prompt('Введите B', '');
-while(a >= b){
-a = +prompt('Введите А', '');}
-step = +prompt('Введите шаг', '');
-for (a,b,step; a<b; a=a+step){
-	console.log(a);
+do {
+	a = +prompt('Введите А', '');
+}	while (isNaN(a) && a<1);
+
+do {
+	b = +prompt('Введите B', '');
+}	while (isNaN(b) && b<=a);
+
+alert ('A = '+a+' and B = '+b+'.');
+
+do {
+	step = +prompt('Введите шаг', '');
+}	while (isNaN(step) && step>=b && step>=0);
+
+console.log(a, b, step);
+
+summ = 0;
+for (; a<=b; a+=step) {
+	console.log('step', a);
+	console.log('.....');
 }
 
-function factolial(a) {    /////?????????????????
-	summ = 0;
-	for (f=0; f<a; f+=1) {
-		summ += factorial(getInputNumericValue(a[f]));
-	}
-	return summ;
-	alert(sum);
+for(j=1, factorial=1; j<=a; j++){
+	factorial *= j;
 }
 
-// Ввести с клавиатуры a и b, где а меньше b (проверку написать кодом). Запустить цикл перебора от a до b с шагом h (ввод с клавиатуры). Посчитать сумму факториалов* чисел которые попадаются во время перебора.
+summ +=factorial;
+
+console.log(summ);
